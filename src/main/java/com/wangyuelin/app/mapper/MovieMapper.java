@@ -1,6 +1,7 @@
 package com.wangyuelin.app.mapper;
 
 import com.wangyuelin.app.bean.HomeMovieBean;
+import com.wangyuelin.app.bean.Movie;
 import com.wangyuelin.app.bean.MovieDetail;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -19,5 +20,7 @@ public interface MovieMapper {
     List<HomeMovieBean> getMovies(@Param("tag") String tag, @Param("num") int num);
     List<MovieDetail> getMovieById(int id);
 
-
+    Movie getById(String id);
+    List<Movie> getByName(String name);
+    void save(Movie movie);
 }

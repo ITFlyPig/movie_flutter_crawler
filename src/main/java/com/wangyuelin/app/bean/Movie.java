@@ -19,6 +19,15 @@ public class Movie {
     private List<MovieLink> links;//电影的资源链接
     private List<String> covers;//封面
     private List<String> froms;//表示从哪些url采集来的
+    private Category category; //分类
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public long getId() {
         return id;

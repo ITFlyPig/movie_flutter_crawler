@@ -6,6 +6,15 @@ public class MovieLink {
     private long id;
     private LinkType type;
     private List<LinkItem> links;
+    private SiteType from;//从哪个网站采集的
+
+    public SiteType getFrom() {
+        return from;
+    }
+
+    public void setFrom(SiteType from) {
+        this.from = from;
+    }
 
     public long getId() {
         return id;

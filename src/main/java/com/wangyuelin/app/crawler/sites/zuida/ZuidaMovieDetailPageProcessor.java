@@ -1,9 +1,6 @@
 package com.wangyuelin.app.crawler.sites.zuida;
 
-import com.wangyuelin.app.bean.LinkType;
-import com.wangyuelin.app.bean.Movie;
-import com.wangyuelin.app.bean.MovieLink;
-import com.wangyuelin.app.bean.MovieType;
+import com.wangyuelin.app.bean.*;
 import com.wangyuelin.app.crawler.SiteConf;
 import com.wangyuelin.app.utils.ArrayUtil;
 import com.wangyuelin.app.utils.TextUtil;
@@ -84,6 +81,7 @@ public class ZuidaMovieDetailPageProcessor implements PageProcessor {
             for (Selectable resource : resources) {
                 String typeName = resource.xpath("h3/span/text()").get();
                 MovieLink movieLink = new MovieLink();
+                movieLink.setFrom(SiteType.ZUIDA);
                 movieLinks.add(movieLink);
                 //资源类型
                 if (!TextUtil.isEmpty(typeName)) {
