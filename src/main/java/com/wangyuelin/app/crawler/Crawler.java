@@ -29,7 +29,7 @@ public class Crawler {
 
     public static void main(String[] args) {
         Crawler crawler = new Crawler();
-        crawler.addUrl("");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-detail-id-73758.html");
 
     }
 }
