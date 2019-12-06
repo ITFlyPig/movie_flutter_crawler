@@ -13,5 +13,4 @@ public interface UserDao  extends BaseMapper<User> {
     User getUserById(@Param("id") int id);
 
 
-
 }

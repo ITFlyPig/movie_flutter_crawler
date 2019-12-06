@@ -2,7 +2,6 @@ package com.wangyuelin.app.service;
 
 import com.wangyuelin.app.bean.HomeMovieBean;
 import com.wangyuelin.app.bean.MovieDetail;
-import com.wangyuelin.app.mapper.MovieMapper;
 import com.wangyuelin.app.service.itf.IMovie;
 import com.wangyuelin.app.utils.TextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +17,13 @@ import java.util.List;
  */
 @Service
 public class MovieService implements IMovie {
-    @Autowired
-    private MovieMapper movieMapper;
 
     @Override
     public List<HomeMovieBean> getByTag(String tag) {
         if (TextUtil.isEmpty(tag)) {
             return null;
         }
-        return movieMapper.getByTag(tag);
+        return null;
     }
 
     @Override
@@ -34,7 +31,7 @@ public class MovieService implements IMovie {
         if (num <= 0 || TextUtil.isEmpty(tag)) {
             return null;
         }
-        return movieMapper.getMovies(tag, num);
+        return null;
 
     }
 
@@ -43,6 +40,6 @@ public class MovieService implements IMovie {
         if (id < 0) {
             return null;
         }
-        return movieMapper.getMovieById(id);
+        return null;
     }
 }
