@@ -18,6 +18,7 @@ public class Movie {
     private float doubanRank;//豆瓣评分
     private List<MovieLink> links;//电影的资源链接
     private List<String> covers;//封面
+    private List<String> froms;//表示从哪些url采集来的
 
     public long getId() {
         return id;
@@ -137,6 +138,14 @@ public class Movie {
 
     public void setCovers(List<String> covers) {
         this.covers = covers;
+    }
+
+    public List<String> getFroms() {
+        return froms;
+    }
+
+    public void setFroms(List<String> froms) {
+        this.froms = froms;
     }
 
     @Override

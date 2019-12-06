@@ -14,7 +14,9 @@ public enum MovieType {
     LOVE(6, "爱情"),
     DRAMATIC(7, "剧情"),
     DOCUMENTARY(8, "纪录片"),
-    THRILLER(9, "惊悚");
+    THRILLER(9, "惊悚"),
+    FULI(10, "福利"),
+    ETHICAL(11, "伦理");
 
     MovieType(int value, String name) {
         this.value = value;

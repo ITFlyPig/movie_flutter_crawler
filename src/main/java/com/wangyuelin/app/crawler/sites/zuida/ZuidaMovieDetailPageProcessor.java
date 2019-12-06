@@ -30,6 +30,12 @@ public class ZuidaMovieDetailPageProcessor implements PageProcessor {
         Html html = page.getHtml();
         Movie movie = parseHtml(html);
         if (movie != null) {
+            List<String> froms = movie.getFroms();
+            if (froms == null) {
+                froms = new ArrayList<String>();
+                movie.setFroms(froms);
+            }
+            froms.add(page.getUrl().get());
             System.out.println("解析得到的电影");
             System.out.println(movie.toString());
         }
