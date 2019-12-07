@@ -10,9 +10,20 @@ public class MovieProvider {
         return new SQL(){
             {
                 INSERT_INTO("movie");
-                INTO_COLUMNS("name");
-                INTO_VALUES("#{movie.name}");
+                INTO_COLUMNS("name", "actors");
+                INTO_VALUES("#{movie.name}", "#{movie.actorsStr}");
 
+            }
+        }.toString();
+
+    }
+
+    public String getById(@Param("id") long id) {
+        return new SQL(){
+            {
+                SELECT("*");
+                FROM("movie");
+                WHERE("id = #{id}");
             }
         }.toString();
 

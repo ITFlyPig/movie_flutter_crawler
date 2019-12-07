@@ -1,5 +1,9 @@
 package com.wangyuelin.app.bean;
 
+import com.wangyuelin.app.utils.TextUtil;
+import org.apache.commons.lang3.text.StrBuilder;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class Movie {
@@ -155,6 +159,24 @@ public class Movie {
 
     public void setFroms(List<String> froms) {
         this.froms = froms;
+    }
+
+    public String getActorsStr() {
+        StrBuilder builder = new StrBuilder();
+        if (actors != null) {
+            for (String actor : actors) {
+                builder.append(actor).append(";");
+            }
+        }
+        return builder.toString();
+    }
+
+    public  void setActorsStr(String actorsStr) {
+        if (TextUtil.isEmpty(actorsStr)) {
+            return;
+        }
+        String[] actorArray = actorsStr.split(";");
+        actors = Arrays.asList(actorArray);
     }
 
     @Override
