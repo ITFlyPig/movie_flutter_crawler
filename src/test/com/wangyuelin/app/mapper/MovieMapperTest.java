@@ -32,4 +32,10 @@ public class MovieMapperTest {
         System.out.println("查询成功：" + movie.toString());
     }
 
+    @Test
+    public void getByName() throws Exception {
+        Movie movie = movieMapper.getByName("X战警");
+        System.out.println("查询成功：" + movie.toString());
+    }
+
 }

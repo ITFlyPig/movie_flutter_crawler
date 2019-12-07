@@ -14,4 +14,11 @@ public enum  SiteType {
     private String host;
     private String name;
 
+    public String getHost() {
+        return host;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

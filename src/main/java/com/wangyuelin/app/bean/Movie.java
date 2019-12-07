@@ -3,10 +3,11 @@ package com.wangyuelin.app.bean;
 import com.wangyuelin.app.utils.TextUtil;
 import org.apache.commons.lang3.text.StrBuilder;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Movie {
+public class Movie implements Serializable {
     private long id;
     private String name;
     private List<String> otherNames;

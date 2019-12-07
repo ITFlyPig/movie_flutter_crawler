@@ -65,7 +65,7 @@ public class MovieController {
         if (tag == null) {
             return null;
         }
-        List<HomeMovieBean> movies = iMovie.getMoviesByNum(tag.getTagStr(), 12);
+        List<HomeMovieBean> movies = new ArrayList<HomeMovieBean>();
         if (movies == null) {
             return null;
         }
@@ -81,7 +81,7 @@ public class MovieController {
      * @return
      */
     public MovieDetail getMovieByid(int id) {
-        List<MovieDetail> movies = iMovie.getMovieById(id);
+        List<MovieDetail> movies = new ArrayList<MovieDetail>();
         if (movies == null || movies.size() == 0) {
             return null;
         }
