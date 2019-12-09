@@ -3,6 +3,8 @@ package com.wangyuelin.app.crawler;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Crawler Tester.
@@ -34,8 +36,6 @@ public class CrawlerTest {
      */
     @Test
     public void testMain() throws Exception {
-//TODO: Test goes here...
-        Crawler.main(null);
     }
 
 

@@ -4,6 +4,7 @@ import com.wangyuelin.app.bean.*;
 import com.wangyuelin.app.crawler.SiteConf;
 import com.wangyuelin.app.utils.ArrayUtil;
 import com.wangyuelin.app.utils.TextUtil;
+import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
@@ -17,13 +18,13 @@ import java.util.List;
 /**
  * 解析电影的详情页
  */
+@Component
 public class ZuidaMovieDetailPageProcessor implements PageProcessor {
     @Override
     public void process(Page page) {
         if (page == null) {
             return;
         }
-
         Html html = page.getHtml();
         Movie movie = parseHtml(html);
         if (movie != null) {

@@ -2,6 +2,7 @@ package com.wangyuelin.app.crawler.sites.zuida;
 
 import com.wangyuelin.app.crawler.SiteConf;
 import com.wangyuelin.app.utils.TextUtil;
+import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -10,6 +11,7 @@ import us.codecraft.webmagic.selector.Selectable;
 
 import java.util.List;
 
+@Component
 public class ZuidaMovieListPageProcessor implements PageProcessor {
     private static String HOST = "http://www.zuidazy2.net/";
     @Override

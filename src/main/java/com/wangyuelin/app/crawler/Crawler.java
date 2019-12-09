@@ -1,15 +1,30 @@
 package com.wangyuelin.app.crawler;
 
 import com.wangyuelin.app.utils.TextUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 
+@Component
 public class Crawler {
+    @Autowired
     private Spider mSpider;
 
-    public Crawler() {
-        mSpider = Spider.create(new RootPageProcessor());
+    private static RootPageProcessor rootPageProcessor;
+
+    @Autowired
+    public Crawler(RootPageProcessor rootPageProcessor) {
+        Crawler.rootPageProcessor = rootPageProcessor;
     }
+
+    @Bean
+    public Spider ctrateCrawler() {
+        return Spider.create(rootPageProcessor);
+    }
+
 
     /**
      * 添加要爬取的url
@@ -27,9 +42,4 @@ public class Crawler {
 
     }
 
-    public static void main(String[] args) {
-        Crawler crawler = new Crawler();
-        crawler.addUrl("http://www.zuidazy2.net/?m=vod-detail-id-71392.html");
-
-    }
 }

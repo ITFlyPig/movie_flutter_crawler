@@ -1,6 +1,7 @@
 package com.wangyuelin.app.controller;
 
 import com.wangyuelin.app.bean.User;
+import com.wangyuelin.app.crawler.Crawler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,23 @@ import java.util.List;
 public class UserController {
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    @Autowired
+    private Crawler crawler;
+
 //    @Autowired
 //    private ITest test;
 //
 //
-//    @RequestMapping("/getOneUser")
-//    @ResponseBody
-//    public User getOneUser(){
-//        logger.info("getOneUser");
-//        return test.getUser();
-//    }
+    @RequestMapping("/getOneUser")
+    @ResponseBody
+    public User getOneUser(){
+
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-detail-id-71392.html");
+
+        User user = new User();
+        user.setName("wang");
+        return user;
+    }
 //
 //
 //    @RequestMapping("/getAll")
