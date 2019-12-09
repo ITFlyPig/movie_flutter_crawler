@@ -17,12 +17,12 @@ public class TypeMapperTest {
 
     @Test
     public void insert() throws Exception {
-        typeMapper.insert("动作", 2);
+        typeMapper.insertType("动作", 2);
     }
 
     @Test
     public void getId() throws Exception {
-        Integer id = typeMapper.getId(2);
+        Integer id = typeMapper.getTypeId(2);
         System.out.println("id：" + id);
     }
 
