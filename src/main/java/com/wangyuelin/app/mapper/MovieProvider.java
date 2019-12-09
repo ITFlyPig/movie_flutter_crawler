@@ -10,8 +10,8 @@ public class MovieProvider {
         return new SQL(){
             {
                 INSERT_INTO("movie");
-//                INTO_COLUMNS("name", "actors");
-//                INTO_VALUES("#{movie.name}", "#{movie.actorsStr}");
+                INTO_COLUMNS("name", "actors");
+                INTO_VALUES("#{movie.name}", "#{movie.actorsStr}");
 
             }
         }.toString();

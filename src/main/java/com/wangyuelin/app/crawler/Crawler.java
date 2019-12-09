@@ -13,16 +13,21 @@ public class Crawler {
     @Autowired
     private Spider mSpider;
 
+
     private static RootPageProcessor rootPageProcessor;
+    private static DBPipeline dbPipeline;
 
     @Autowired
-    public Crawler(RootPageProcessor rootPageProcessor) {
+    public Crawler(RootPageProcessor rootPageProcessor, DBPipeline dbPipeline) {
         Crawler.rootPageProcessor = rootPageProcessor;
+        Crawler.dbPipeline = dbPipeline;
     }
 
     @Bean
     public Spider ctrateCrawler() {
-        return Spider.create(rootPageProcessor);
+        Spider spider = Spider.create(rootPageProcessor);
+        spider.addPipeline(dbPipeline);
+        return spider;
     }
 
 

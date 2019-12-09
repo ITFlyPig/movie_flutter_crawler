@@ -36,6 +36,7 @@ public class ZuidaMovieDetailPageProcessor implements PageProcessor {
             froms.add(page.getUrl().get());
             System.out.println("解析得到的电影");
             System.out.println(movie.toString());
+            page.putField("movie", movie);
         }
 
     }
