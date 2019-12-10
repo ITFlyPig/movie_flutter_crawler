@@ -53,5 +53,13 @@ public interface LinkMapper {
     @Select("SELECT id, `name`, link FROM link_item WHERE movie_link_id = #{movieLinkId}")
     List<MovieLink.LinkItem> getLinkItem(@Param("movieLinkId") long movieLinkId);
 
+    /**
+     * 查询资源的数量
+     * @param movieLinkId
+     * @return
+     */
+    @Select("SELECT COUNT(id) FROM link_item WHERE movie_link_id = #{movieLinkId}")
+    Integer getLinkItemSize(@Param("movieLinkId") long movieLinkId);
+
 
 }

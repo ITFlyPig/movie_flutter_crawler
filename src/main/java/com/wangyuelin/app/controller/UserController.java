@@ -27,14 +27,14 @@ public class UserController {
     @ResponseBody
     public User getOneUser(){
 
-//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-5.html");
-//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-5-pg-2.html");
-//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-6.html");
-//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-6-pg-2.html");
-//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-8.html");
-//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-8-pg-2.html");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-5.html");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-5-pg-2.html");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-6.html");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-6-pg-2.html");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-8.html");
+        crawler.addUrl("http://www.zuidazy2.net/?m=vod-type-id-8-pg-2.html");
 
-        crawler.addUrl("http://www.zuidazy2.net/?m=vod-detail-id-60905.html");
+//        crawler.addUrl("http://www.zuidazy2.net/?m=vod-detail-id-60905.html");
 
         User user = new User();
         user.setName("wang");

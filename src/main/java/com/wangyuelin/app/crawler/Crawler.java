@@ -39,10 +39,10 @@ public class Crawler {
         if (TextUtil.isEmpty(url)) {
             return;
         }
+        mSpider.addRequest(new Request(url));
         if (mSpider.getStatus() == Spider.Status.Running) {
             return;
         }
-        mSpider.addRequest(new Request(url));
         mSpider.start();
 
     }
