@@ -155,7 +155,8 @@ public class ZuidaMovieDetailPageProcessor implements PageProcessor {
             } else if(textName.contains("语言")) {
                 movie.setLanguage(value);
             } else if(textName.contains("上映")) {
-                movie.setShowTimes(ArrayUtil.toList(value));
+                Integer year = TextUtil.toInteger(value);
+                movie.setYear(year == null ? -1 : year);
             } else if(textName.contains("片长")) {
                 Integer duration = TextUtil.toInteger(value);
                 movie.setDuration(duration == null ? 0 : duration);

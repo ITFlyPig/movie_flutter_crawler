@@ -34,8 +34,8 @@ public class ZuidaMovieListPageProcessor implements PageProcessor {
             if (!TextUtil.isEmpty(text) && text.equals("下一页")) {
                 String pageUrl = pageLink.xpath("a/@href").get();
                 if (!TextUtil.isEmpty(pageUrl)) {
-                    page.addTargetRequest(new Request(HOST + pageUrl));
-                    System.out.println("添加下一页链接：" + pageUrl);
+//                    page.addTargetRequest(new Request(HOST + pageUrl));
+//                    System.out.println("添加下一页链接：" + pageUrl);
                 }
             }
         }

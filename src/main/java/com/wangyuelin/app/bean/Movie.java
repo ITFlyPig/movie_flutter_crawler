@@ -4,6 +4,7 @@ import com.wangyuelin.app.utils.TextUtil;
 import org.apache.commons.lang3.text.StrBuilder;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Movie implements Serializable {
     private List<MovieType> types;//类型：动作片  惊悚片
     private List<String> locations;//国家和地区
     private String language;//语言
-    private List<String> showTimes;//上映时间
+    private int year;//上映时间
     private int duration;//电影时长，分钟为单位
     private String intro;//简介
     private float doubanRank;//豆瓣评分
@@ -32,6 +33,14 @@ public class Movie implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public long getId() {
@@ -106,13 +115,6 @@ public class Movie implements Serializable {
         this.language = language;
     }
 
-    public List<String> getShowTimes() {
-        return showTimes;
-    }
-
-    public void setShowTimes(List<String> showTimes) {
-        this.showTimes = showTimes;
-    }
 
     public int getDuration() {
         return duration;
@@ -180,34 +182,112 @@ public class Movie implements Serializable {
         actors = Arrays.asList(actorArray);
     }
 
+    public void  setOtherNamesStr(String otherNamesStr){
+        otherNames = toList(otherNamesStr);
+
+    }
+
+    public String getOtherNamesStr(){
+       return toStr(otherNames).toString();
+    }
+
+    public void  setDirectorsStr(String directorsStr){
+        directors = toList(directorsStr);
+
+    }
+
+    public String getDirectorsStr(){
+        return toStr(directors).toString();
+    }
+
+    public void  setLocationsStr(String locationsStr){
+        locations = toList(locationsStr);
+
+    }
+
+    public String getLocationsStr(){
+        return toStr(locations).toString();
+    }
+
+
+    public void  setCoversStr(String coversStr){
+        covers = toList(coversStr);
+
+    }
+
+    public String getCoversStr(){
+        return toStr(covers).toString();
+    }
+
+    public void  setFromsStr(String fromsStr){
+        froms = toList(fromsStr);
+
+    }
+
+    public String getFromsStr(){
+        return toStr(froms).toString();
+    }
+
+
+
+
+
+
+
+
+
+
     @Override
     public String toString() {
        StringBuilder builder = new StringBuilder();
        builder.append("名称：").append(name).append("\n")
                .append("id:").append(id).append("\n")
-               .append("封面:").append(getStr(covers)).append("\n")
+               .append("封面:").append(toStr(covers)).append("\n")
                .append("评分:").append(doubanRank).append("\n")
-               .append("别名:").append(getStr(otherNames)).append("\n")
+               .append("别名:").append(toStr(otherNames)).append("\n")
                .append("质量:").append(quality).append("\n")
-               .append("导演:").append(getStr(directors)).append("\n")
-               .append("演员:").append(getStr(actors)).append("\n")
+               .append("导演:").append(toStr(directors)).append("\n")
+               .append("演员:").append(toStr(actors)).append("\n")
                .append("类型:").append(getMovieTypeStr(types)).append("\n")
-               .append("地区:").append(getStr(locations)).append("\n")
+               .append("地区:").append(toStr(locations)).append("\n")
                .append("语言:").append(language).append("\n")
-               .append("上映时间:").append(showTimes).append("\n")
+               .append("上映时间:").append(year).append("\n")
                .append("时长:").append(duration).append("\n")
                .append("资源:").append(getMovieLinkStr(links)).append("\n")
                .append("简介:").append(intro).append("\n").append("\n").append("\n").append("\n");
        return builder.toString();
     }
 
-    StringBuilder getStr(List<String> list) {
+    /**
+     * 将字符串转为list
+     * @param str
+     * @return
+     */
+    List<String> toList(String str) {
+        if (TextUtil.isEmpty(str)) {
+            return null;
+        }
+        String[] array = str.split(";");
+        return Arrays.asList(array);
+    }
+
+    /**
+     * 将list转为字符串
+     * @param list
+     * @return
+     */
+    StringBuilder toStr(List<String> list) {
         StringBuilder builder = new StringBuilder();
         if (list == null) {
             return builder;
         }
+        boolean first = true;
         for (String s : list) {
-            builder.append(s).append(",");
+            if (!first) {
+                builder.append(";");
+            }
+            builder.append(s);
+            first = false;
         }
         return builder;
     }
